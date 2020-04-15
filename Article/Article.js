@@ -2,6 +2,15 @@
 /* Look over this data, then proceed to line 91*/
 const data = [
   {
+    title: "The Wire",
+    date: "2014",
+    firstParagraph: `Snot Boogie`,
+
+    secondParagraph: `The Ports.`,
+
+    thirdParagraph: `Politicians.`,
+  },
+  {
     title: 'Lambda School Students: "We\'re the best!"',
     date: "Nov 5th, 2018",
     firstParagraph: `Lucas ipsum dolor sit amet ben twi'lek padmé darth darth darth moff hutt organa twi'lek. Ben amidala secura skywalker lando
@@ -93,28 +102,31 @@ const data = [
 //classList
 //textContent
 
-const componentFunction = (title, data, firstP, secondP, thirdP) => {
+const componentFunction = (title, date, firstP, secondP, thirdP) => {
   const articleDiv = document.createElement("div");
   articleDiv.classList.add("article");
 
+  const aritcleH2 = document.createElement("h2");
+  aritcleH2.textContent = title;
+
+  const aritcleDate = document.createElement("p");
+  aritcleDate.textContent = date;
+
   const aritcleP1 = document.createElement("p");
-  aritcleP1.classList.add("date");
   aritcleP1.textContent = firstP;
 
   const aritcleP2 = document.createElement("p");
-  aritcleP2.classList.add("date");
   aritcleP2.textContent = secondP;
 
   const aritcleP3 = document.createElement("p");
-  aritcleP3.classList.add("date");
   aritcleP3.textContent = thirdP;
-
-  const aritcleH2 = document.createElement("h2");
 
   const articleSpan = document.createElement("span");
   articleSpan.classList.add("expandButton");
+  articleSpan.textContent = "LOL?";
 
   articleDiv.appendChild(aritcleH2);
+  articleDiv.appendChild(aritcleDate);
   articleDiv.appendChild(aritcleP1);
   articleDiv.appendChild(aritcleP2);
   articleDiv.appendChild(aritcleP3);
@@ -123,23 +135,22 @@ const componentFunction = (title, data, firstP, secondP, thirdP) => {
   return articleDiv;
 };
 
-const articleFunction = componentFunction(data);
 
 const articles = document.querySelector(".articles");
-console.log(articles);
-articles.appendChild(articleFunction);
-
-const button = document.querySelector('.expandButton');
-button.addEventListener('click', (element) => { 
-  button.classList.toggle('article-open');
-})
-
-
 data.forEach(e => { 
   const articleComponent = componentFunction(e.title, e.date, e.firstParagraph, e.secondParagraph, e.thirdParagraph);
   console.log(articleComponent);
-  articles.appendChild(articleFunction);
+  articles.appendChild(articleComponent);
 })
+
+const button = document.querySelector('.expandButton');
+console.log(button);
+button.addEventListener('click', () => { 
+  articleDiv.classList.toggle('.article-open');
+  console.log("FIRE IN THE HOLE");
+})
+
+
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
