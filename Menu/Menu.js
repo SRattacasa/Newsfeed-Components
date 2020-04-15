@@ -26,11 +26,18 @@ const menuFunction = (arr) => {
   )
 
   const menuButton = document.querySelector('.menu-button');
+  menuButton.addEventListener('click', () => {
+  menuDiv.classList.toggle('menu--open');
+  })
 
   return menuDiv;
 };
 
-console.log(menuFunction(menuItems));
+const pageBody = document.querySelector('.header');
+const page = menuFunction(menuItems);
+pageBody.appendChild(page);
+
+
 /* 
 
   Step 1: Write a function that will create a menu component as seen below:

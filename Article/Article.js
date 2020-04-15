@@ -124,6 +124,7 @@ const componentFunction = (title, date, firstP, secondP, thirdP) => {
   const articleSpan = document.createElement("span");
   articleSpan.classList.add("expandButton");
   articleSpan.textContent = "LOL?";
+  articleSpan.addEventListener('click', () => { articleDiv.classList.toggle('article-open')});
 
   articleDiv.appendChild(aritcleH2);
   articleDiv.appendChild(aritcleDate);
@@ -143,12 +144,6 @@ data.forEach(e => {
   articles.appendChild(articleComponent);
 })
 
-const button = document.querySelector('.expandButton');
-console.log(button);
-button.addEventListener('click', () => { 
-  articleDiv.classList.toggle('.article-open');
-  console.log("FIRE IN THE HOLE");
-})
 
 
 
